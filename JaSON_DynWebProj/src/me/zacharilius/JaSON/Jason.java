@@ -52,4 +52,15 @@ public class Jason {
 	public LinkedList<String> getMovies(){
 		return movies;
 	}
+	public String toString(){
+		StringBuilder s = new StringBuilder();
+		s.append("\nFirst Name: " + fName);
+		s.append("\nLast Name: " + lName);
+		s.append("\nURL: " + url);
+		s.append("\nMovies: " + movies.toString());
+		s.append("\nTV Shows: " + tvShows.toString());
+
+		
+		return s.toString();
+	}
 }

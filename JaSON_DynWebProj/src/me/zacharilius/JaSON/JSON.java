@@ -1,5 +1,6 @@
 package me.zacharilius.JaSON;
 
+import java.awt.List;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,6 +9,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.LinkedList;
+
+import org.codehaus.jackson.annotate.JsonSubTypes.Type;
+
 import com.google.gson.Gson;
 
 
@@ -18,7 +22,36 @@ public class JSON {
 	
     public static void main( String[] args )
     {
+    	Jason first = new Jason();
+    	first.setfName("Jason");
+    	first.setlName("Bateman");
+    	first.setUrl("http://www.moviepilot.de/files/images/0487/0030/Jason_Bateman.jpg");
+    	first.addMovie("Identity Thief");
+    	first.addMovie("Horrible Bosses");
+    	first.addTVShow("Arrested Development");
+    	first.addTVShow("Sit Down Shut Up");
     	
+    	Jason second = new Jason();
+    	second.setfName("Jason");
+    	second.setlName("Toople");
+    	second.setUrl("http://www.moviepilot.de/files/images/0487/0030/Jason_Bateman.jpg");
+    	second.addMovie("Identity Thief");
+    	second.addMovie("Horrible Bosses");
+    	second.addTVShow("Arrested Development");
+    	second.addTVShow("Sit Down Shut Up");
+    	
+    	
+    	jasons.add(first);
+    	jasons.add(second);
+
+    	String j = gson.toJson(jasons);
+    	System.out.println(j);
+    	//Type type = new TypeToken<LinkedList<Jason>>(){}.getType();
+
+    	//LinkedList<Jason> jte = gson.fromJson(j, Jason.class);
+    	//System.out.println(jasonJSON.toString());
+    	
+    	/*
     	
     	    	
     	// Converts from Java to JSON
@@ -30,7 +63,7 @@ public class JSON {
     	String fileJSON = readJSON();
     	Jason jason = gson.fromJson(fileJSON, Jason.class);
     	System.out.println("fromJSON: " + jason.getfName() + " " + jason.getlName());
-		
+		*/
     }
     public static String getJasons(){
     	StringBuilder str = new StringBuilder();
