@@ -3,9 +3,7 @@ package me.zacharilius.JaSON;
 import java.util.LinkedList;
 
 public class Jason {
-	public static void main(String[] args){
-		System.out.println("Umm I guess this is working");
-	}
+
 	private String fName;
 	private String lName;
 	private String url;

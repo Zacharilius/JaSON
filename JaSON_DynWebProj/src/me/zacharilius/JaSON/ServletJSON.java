@@ -42,7 +42,7 @@ public class ServletJSON extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("Executed");
 			
 		// 1. get received JSON data from request
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
@@ -50,14 +50,14 @@ public class ServletJSON extends HttpServlet {
         if(br != null){
             json = br.readLine();
         }
-        
+        System.out.println(json);
         // 2. initiate GSON mapper
-//        Gson gson = new Gson();
-        ObjectMapper mapper = new ObjectMapper();
+        Gson gson = new Gson();
+//        ObjectMapper mapper = new ObjectMapper();
 
         // 3.  Convert JSON to Jason
-//    	Jason jason = gson.fromJson(json, Jason.class);
-        Jason jason = mapper.readValue(json, Jason.class);
+    	Jason jason = gson.fromJson(json, Jason.class);
+//        Jason jason = mapper.readValue(json, Jason.class);
 
         // 4.  Set response type to JSON
 //    	response.setContentType("application/json");
@@ -69,7 +69,7 @@ public class ServletJSON extends HttpServlet {
 
         // 6.  Send List<Jason> as JSON to client
 //    	String j = gson.fromJson(jason, Jason.class);
-        mapper.writeValue(response.getOutputStream(), jasons);
+//        mapper.writeValue(response.getOutputStream(), jasons);
 
 /**
  *     	
