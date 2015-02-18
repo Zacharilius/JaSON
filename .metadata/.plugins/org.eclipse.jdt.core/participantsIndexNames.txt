@@ -1,0 +1,5 @@
+INDEX VERSION 1.127
+/home/zacharilius/Documents/GitHub/JaSON/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4178605605.index
+/jason/src/main/resources
+/home/zacharilius/Documents/GitHub/JaSON/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1002024739.index
+/JaSON/src/main/resources

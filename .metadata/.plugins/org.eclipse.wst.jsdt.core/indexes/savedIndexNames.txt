@@ -1,0 +1,8 @@
+INDEX VERSION 1.3+/home/zacharilius/Documents/GitHub/JaSON/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2478645367.index
+1865367180.index
+3193973482.index
+378589659.index
+1941341193.index
+2147965488.index
+669560723.index

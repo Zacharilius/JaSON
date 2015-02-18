@@ -8,11 +8,11 @@ public class Jason {
 	private String lName;
 	private String url;
 	private LinkedList<String> movies;
-	private LinkedList<String> tvShows;
+	private LinkedList<String> tvshows;
 	
 	public Jason(){
 		movies = new LinkedList<String>();
-		tvShows = new LinkedList<String>();
+		tvshows = new LinkedList<String>();
 	}
 
 	public String getfName() {
@@ -38,14 +38,14 @@ public class Jason {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public void addTVShow(String tvShow){
-		tvShows.add(tvShow);
+	public void addTVShow(String tvshow){
+		tvshows.add(tvshow);
 	}
 	public void addMovie(String movie){
 		movies.add(movie);
 	}
 	public LinkedList<String> getTVShows(){
-		return tvShows;
+		return tvshows;
 	}
 	public LinkedList<String> getMovies(){
 		return movies;
@@ -56,7 +56,7 @@ public class Jason {
 		s.append("\nLast Name: " + lName);
 		s.append("\nURL: " + url);
 		s.append("\nMovies: " + movies.toString());
-		s.append("\nTV Shows: " + tvShows.toString());
+		s.append("\nTV Shows: " + tvshows.toString());
 
 		
 		return s.toString();

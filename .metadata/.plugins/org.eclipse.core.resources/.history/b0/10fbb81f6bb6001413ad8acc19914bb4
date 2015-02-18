@@ -1,0 +1,19 @@
+package me.zacharilius.JaSON;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
+public class ServletJSON_Helper {
+	public static void parseJSON(String json){
+		
+		Gson gson = new Gson();
+//      ObjectMapper map = new ObjectMapper();
+		System.out.println("Created ObjectMapper()");
+		// 3.  Convert JSON to Jason
+		Jason jason = gson.fromJson(json, Jason.class);
+//      Jason jason = map.readValue(json, Jason.class);
+		System.out.println(jason.toString());
+		
+	}
+}

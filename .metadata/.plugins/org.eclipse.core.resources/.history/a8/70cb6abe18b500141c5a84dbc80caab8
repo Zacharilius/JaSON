@@ -1,0 +1,16 @@
+package me.zacharilius.JaSON;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Article {
+	private String title;
+    private String url;
+    private List<String> categories;
+    private List<String> tags;
+    
+    public Article(){
+    	categories = new ArrayList<String>();
+    	tags = new ArrayList<String>();
+    }
+}

@@ -1,0 +1,5 @@
+127.0.0.1 - - [12/Feb/2015:11:09:53 -0500] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [12/Feb/2015:11:15:44 -0500] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [12/Feb/2015:11:15:44 -0500] "GET /JaSON/WEB-INF/classes/me/zacharilius/blog/JaSON_Servlet.java HTTP/1.1" 404 992
+127.0.0.1 - - [12/Feb/2015:11:15:56 -0500] "GET /JaSON/WEB-INF/classes/me/zacharilius/blog/JaSON_Servlet.java HTTP/1.1" 404 992
+127.0.0.1 - - [12/Feb/2015:15:04:48 -0500] "GET / HTTP/1.1" 404 994

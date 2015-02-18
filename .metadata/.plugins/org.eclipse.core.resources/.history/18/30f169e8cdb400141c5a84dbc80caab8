@@ -1,0 +1,121 @@
+package me.zacharilius.JaSON;
+
+import java.awt.List;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import java.util.LinkedList;
+
+import com.google.gson.Gson;
+
+
+public class JSON {
+	
+	private static LinkedList<Jason> jasons= new LinkedList<Jason>();
+	private static Gson gson = new Gson();
+	
+    public static void main( String[] args )
+    {
+    	Jason first = new Jason();
+    	first.setfName("Jason");
+    	first.setlName("Bateman");
+    	first.setUrl("http://www.moviepilot.de/files/images/0487/0030/Jason_Bateman.jpg");
+    	first.addMovie("Identity Thief");
+    	first.addMovie("Horrible Bosses");
+    	first.addTVShow("Arrested Development");
+    	first.addTVShow("Sit Down Shut Up");
+    	
+    	Jason second = new Jason();
+    	second.setfName("Jason");
+    	second.setlName("Toople");
+    	second.setUrl("http://www.moviepilot.de/files/images/0487/0030/Jason_Bateman.jpg");
+    	second.addMovie("Identity Thief");
+    	second.addMovie("Horrible Bosses");
+    	second.addTVShow("Arrested Development");
+    	second.addTVShow("Sit Down Shut Up");
+    	
+    	
+    	jasons.add(first);
+    	jasons.add(second);
+
+    	String j = gson.toJson(jasons);
+    	System.out.println(j);
+    	
+    	
+    	listOfStrings.add("one");
+    	listOfStrings.add("two");
+    	Gson gson = new Gson();
+    	String json = gson.toJson(listOfStrings);
+    	System.out.println(json);
+    	Type type = new TypeToken<Collection<String>>(){}.getType();
+    	List<String> fromJson = gson.fromJson(json, type);
+    	System.out.println(fromJson);
+    	
+    	
+    	/*
+    	
+    	    	
+    	// Converts from Java to JSON
+    	String json = gson.toJson(createJason());
+    	System.out.println("toJSON: " + json);
+    	writeJSON(json);
+    	
+    	// Converts from JSON to Java
+    	String fileJSON = readJSON();
+    	Jason jason = gson.fromJson(fileJSON, Jason.class);
+    	System.out.println("fromJSON: " + jason.getfName() + " " + jason.getlName());
+		*/
+    }
+    public static String getJasons(){
+    	StringBuilder str = new StringBuilder();
+    	
+    	
+    	
+    	return str.toString();
+    }
+    public static Jason createJason(){
+    	Jason jason = new Jason();
+    	jason.setfName("Jason");
+    	jason.setlName("Bateman");
+    	jason.setUrl("http://www.moviepilot.de/files/images/0487/0030/Jason_Bateman.jpg");
+    	jason.addMovie("Identity Thief");
+    	jason.addMovie("Horrible Bosses");
+    	jason.addTVShow("Arrested Development");
+    	jason.addTVShow("Sit Down Shut Up");
+    	return jason;
+    }
+    public static void writeJSON(String json){
+    	File outFile;
+    	FileWriter fWriter;
+    	PrintWriter pWriter; 
+		try {
+			outFile = new File("Jason.json");
+			fWriter = new FileWriter(outFile);
+	    	pWriter = new PrintWriter(fWriter);
+	    	pWriter.println(json);
+	    	pWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    public static String readJSON(){
+    	File inFile = new File("Jason.json");
+    	StringBuffer str = new StringBuffer();
+		try {
+			Scanner sc = new Scanner(inFile);
+			while(sc.hasNextLine()){
+				str.append(sc.nextLine());
+	    	}
+			sc.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return str.toString();
+    }
+}

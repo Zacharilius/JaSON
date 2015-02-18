@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="JaSON_DynWebProj">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <property name="context-root" value="JaSON_DynWebProj"/>
+        <property name="java-output-path" value="/JaSON_DynWebProj/build/classes"/>
+    </wb-module>
+</project-modules>

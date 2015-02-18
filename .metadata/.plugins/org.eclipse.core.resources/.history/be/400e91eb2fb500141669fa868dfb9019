@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Java Servlet JSON</title>
+<script src="js/jquery.min.js"></script>
+ 
+<!-- bootstrap just to have good looking page -->
+<link href="bootstrap/bootstrap.min.css" type="text/css" rel="stylesheet" />
+ 
+<!-- we code these -->
+<script src="js/myfunctions.js"></script>
+ 
+</head>
+ 
+<body>
+ 
+    <h1 style="text-align:center">Java Servlet Send & Receive JSON<br></h1> 
+ 
+    <!-- article inputs -->
+    <div class="article" style="margin:10px;">
+        <div class="input-prepend">
+            <span class="add-on">First Name</span>
+            <input class="span4" id="firstName" name="firstName" type="text" placeholder="Jason">
+        </div>
+        <br/>
+        <div class="input-prepend">
+            <span class="add-on">Last Name</span>
+            <input class="span4" id="lastName" name="lastName" type="text" placeholder="Last Name">
+        </div>
+        <br/>
+        <div class="input-prepend">
+            <span class="add-on">URL</span>
+            <input class="span4" id="url" name="url" type="text" placeholder="http://...">
+        </div>
+        <br/>
+        <div class="input-prepend">
+            <span class="add-on">Movies</span>
+            <input class="span2" id="movies" name="movies" type="text" placeholder="movie1;movie2;...">
+        </div>
+        <br/>
+        <div class="input-prepend">
+            <span class="add-on">Tags</span>
+            <input class="span2" id="tags" name="tags" type="text" placeholder="tag1;tag2;...">
+        </div>
+        <p>
+            <button class="btn btn-primary" type="button" onclick="sendAjax()">Add</button>
+        </p>
+    </div>
+ 
+    <!-- display all jasons -->
+    <div style="width:700px;padding:20px;S">
+        <h5 style="text-align:center"><i style="color:#ccc"><small>Famous Jasons</small></i></h5>
+ 
+        <table id="added-jasons" class="table">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Movies</th>
+                <th>TV Shows</th>
+            </tr>
+        </table>
+    </div>
+</body> 
+</html>

@@ -1,0 +1,65 @@
+package me.zacharilius.JaSON;
+
+import java.util.LinkedList;
+
+public class Jason {
+	public static void main(String[] args){
+		System.out.println("Umm I guess this is working");
+	}
+	private String fName;
+	private String lName;
+	private String url;
+	private LinkedList<String> movies;
+	private LinkedList<String> tvShows;
+	
+	public Jason(){
+		movies = new LinkedList<String>();
+		tvShows = new LinkedList<String>();
+	}
+
+	public String getfName() {
+		return fName;
+	}
+
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+
+	public String getlName() {
+		return lName;
+	}
+
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public void addTVShow(String tvShow){
+		tvShows.add(tvShow);
+	}
+	public void addMovie(String movie){
+		movies.add(movie);
+	}
+	public LinkedList<String> getTVShows(){
+		return tvShows;
+	}
+	public LinkedList<String> getMovies(){
+		return movies;
+	}
+	public String toString(){
+		StringBuilder s = new StringBuilder();
+		s.append("First Name: " + fName);
+		s.append("Last Name: " + lName);
+		s.append("First Name: " + fName);
+		s.append("First Name: " + fName);
+
+		
+		return s.toString();
+	}
+}
