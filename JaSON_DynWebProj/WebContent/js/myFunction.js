@@ -28,20 +28,21 @@ function sendAjax() {
  
                 var td_movies = $("<td/>");
                 $.each(json.movies, function (i, tag) {
-                    var span = $("<span class='label label-info' style='margin:4px;padding:4px' />");
+                    var span = $("<span style='margin:4px;padding:4px' />");
                     span.text(tag);
                     td_movies.append(span);
                 });
  
                 var td_tvshows = $("<td/>");
                 $.each(json.tvshows, function (i, tag) {
-                    var span = $("<span class='label label-info' style='margin:4px;padding:4px' />");
+                    var span = $("<span style='margin:4px;padding:4px' />");
                     span.text(tag);
                     td_tvshows.append(span);
                 });
  
                 $("#added-jasons").append($('<tr/>')
-                        .append($('<td/>').html(json.fName))
+                		.append($('<td/>').html('<a href = '+json.url + '>' +'<img src=' + '"'+ json.url + '"' + 'width="32" height="auto"></a>'))
+                		.append($('<td/>').html(json.fName))
                         .append($('<td/>').html(json.lName))
                         .append(td_movies)
                         .append(td_tvshows)

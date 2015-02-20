@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Java Servlet JSON</title>
+<title>Zacharilius</title>
+<link rel="icon" href="images/icon.ico">
 <script src="js/jquery.min.js"></script>
  
 <!-- bootstrap just to have good looking page -->
@@ -13,47 +14,93 @@
  
 </head>
  
-<body>
- 
-    <h1 style="text-align:center">Java Servlet Send & Receive JSON<br></h1> 
- 
+  <body onload = sendAjax()>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./home_files/home.html">Zachary Bensley</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+           <!--Moved to right navbar --> 
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="home.html">Home</a></li>
+            <li class="active"><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+              <a href="./home_files/home.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="./home_files/home.html">Action</a></li>
+                <li><a href="./home_files/home.html">Another action</a></li>
+                <li><a href="./home_files/home.html">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="./home_files/home.html">Separated link</a></li>
+                <li><a href="./home_files/home.html">One more separated link</a></li>
+              </ul>
+            </li>
+            <li class="divider-vertical"></li>
+            <li><a href="https://www.linkedin.com/profile/public-profile-settings?trk=prof-edit-edit-public_profile">LinkedIn</a></li>
+            <li><a href="https://github.com/zacharilius">GitHub</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>{Jason}</h1>
     <!-- article inputs -->
-    <div class="jason" style="margin:10px;">
-        <div class="input-prepend">
-            <span class="add-on">First Name</span>
-            <input class="span4" id="fName" name="fName" type="text" placeholder="Jason">
-        </div>
-        <br/>
-        <div class="input-prepend">
-            <span class="add-on">Last Name</span>
-            <input class="span4" id="lName" name="lName" type="text" placeholder="Last Name">
-        </div>
-        <br/>
-        <div class="input-prepend">
-            <span class="add-on">URL</span>
-            <input class="span4" id="url" name="url" type="text" placeholder="http://...">
-        </div>
-        <br/>
-        <div class="input-prepend">
-            <span class="add-on">Movies</span>
-            <input class="span2" id="movies" name="movies" type="text" placeholder="movie1;movie2;...">
-        </div>
-        <br/>
-        <div class="input-prepend">
-            <span class="add-on">TV Shows</span>
-            <input class="span2" id="tvshows" name="tvshows" type="text" placeholder="tvShow1;tvShow2;...">
-        </div>
-        <p>
-            <button class="btn btn-primary" type="button" onclick="sendAjax()">Add</button>
-        </p>
-    </div>
+    <div class="jason">
+				<div class="input-group">
+  				<span class="input-group-addon" style= "min-width: 100px">First Name</span>
+ 					<input type="text" id = "fName" class="form-control" aria-label="Jason">
+				</div>
+				<br/>
+				<div class="input-group">
+  				<span class="input-group-addon" style= "min-width: 100px">Last Name</span>
+ 					<input type="text" class="form-control" id = "lName" aria-label="Bateman">
+				</div>
+				<br/>
+				<div class="input-group">
+  				<span class="input-group-addon" style= "min-width: 100px">Image URL</span>
+ 					<input type="text" class="form-control" id = "url" aria-label="www.jasonbateman.com/picture.jpg">
+				</div>
+				<br/>
+				<div class="input-group">
+  				<span class="input-group-addon" style= "min-width: 100px">Movies</span>
+ 					<input type="text" class="form-control" id = "movies" aria-label="Movie 1; Movie 2: Movie 3">
+				</div>
+				<br/>
+				<div class="input-group">
+  				<span class="input-group-addon" style= "min-width: 100px">TV Shows</span>
+ 					<input type="text" class="form-control" id = "tvshows" aria-label="TV Show 1; TV Show 2; TV Show 3;">
+				</div>
+				<br/>
+
+      <div style= "text-align: right">  
+          <!--<a class="btn btn-lg btn-primary" onclick="sendAjax()" role="button">Add {Jason}</a> -->
+	       <button class="btn btn-primary" type="button" onclick="sendAjax()">Add Jason</button>
+      </div>
  
     <!-- display all jasons -->
-    <div style="width:700px;padding:20px;S">
-        <h5 style="text-align:center"><i style="color:#ccc"><small>Famous Jasons</small></i></h5>
+    <div>
+        <h2 style="text-align:left">Famous Jasons</h2>
  
         <table id="added-jasons" class="table">
             <tr>
+            	<th>Picture</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Movies</th>
@@ -61,5 +108,21 @@
             </tr>
         </table>
     </div>
-</body> 
-</html>
+
+    <footer>
+      <p>©Zachary Bensley 2015</p>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./bootstrap/js/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    </div>
+    </div> <!-- div-container -->
+
+</body></html>

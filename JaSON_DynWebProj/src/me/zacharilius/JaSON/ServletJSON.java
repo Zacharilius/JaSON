@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.*;
-import com.google.gson.Gson;
 
 /**
  * Servlet implementation class ServletJSON
@@ -67,8 +66,12 @@ public class ServletJSON extends HttpServlet {
 
     	// 5.  Add new Jason to jasons
 //    	jasons.add(jason);
-        jasons.add(jason);
-
+        if(jason.getfName().length() != 0 || jason.getlName().length() != 0 || 
+        		jason.getUrl().length() != 0 || jason.getMovies().isEmpty() || jason.getTVShows().isEmpty()){
+        	jasons.add(jason);
+        	
+        	//Replace this with database add
+        }
         // 6.  Send List<Jason> as JSON to client
 //    	String j = gson.fromJson(jason, Jason.class);
         mapper.writeValue(response.getOutputStream(), jasons);
