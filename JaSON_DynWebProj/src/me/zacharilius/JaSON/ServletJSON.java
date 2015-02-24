@@ -3,6 +3,7 @@ package me.zacharilius.JaSON;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.LinkedList;
 
 import javax.servlet.ServletException;
@@ -40,7 +41,7 @@ public class ServletJSON extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Executed");
+//		System.out.println("Executed");
 			
 		// 1. get received JSON data from request
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
@@ -48,53 +49,40 @@ public class ServletJSON extends HttpServlet {
         if(br != null){
             json = br.readLine();
         }
-        System.out.println(json);
+//        System.out.println(json);
 
         // 2. initiate GSON mapper
-//        Gson gson = new Gson();
         ObjectMapper mapper = new ObjectMapper();
-        System.out.println("Created ObjectMapper()");
+//        System.out.println("Created ObjectMapper()");
+        
         // 3.  Convert JSON to Jason
-//    	Jason jason = gson.fromJson(json, Jason.class);
         Jason jason = mapper.readValue(json, Jason.class);
-    	System.out.println(jason.toString());
+//    	System.out.println(jason.toString());
     	
     	
         // 4.  Set response type to JSON
-//    	response.setContentType("application/json");
         response.setContentType("application/json");            
 
     	// 5.  Add new Jason to jasons
-//    	jasons.add(jason);
         if(jason.getfName().length() != 0 || jason.getlName().length() != 0 || 
-        		jason.getUrl().length() != 0 || jason.getMovies().isEmpty() || jason.getTVShows().isEmpty()){
-        	jasons.add(jason);
+        		jason.getUrl().length() != 0 || jason.getMovies().isEmpty() || 
+        		jason.getTVShows().isEmpty()){
         	
         	//Replace this with database add
+     //   	jasons.add(jason);
+        	try {
+				MySQL_Database.writeJason(jason);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
         }
+		jasons = MySQL_Database.getJasons();
+		
         // 6.  Send List<Jason> as JSON to client
 //    	String j = gson.fromJson(jason, Jason.class);
         mapper.writeValue(response.getOutputStream(), jasons);
-
-/**
- *     	
-
-        
-        // 2. initiate jackson mapper
-        ObjectMapper mapper = new ObjectMapper();
-
-        // 3. Convert received JSON to Article
-        Article article = mapper.readValue(json, Article.class);
- 
-        // 4. Set response type to JSON
-        response.setContentType("application/json");            
- 
-        // 5. Add article to List<Article>
-        articles.add(article);
- 
-        // 6. Send List<Article> as JSON to client
-        mapper.writeValue(response.getOutputStream(), articles);
- */
 	}
 
 }
